@@ -1,0 +1,114 @@
+[
+  {
+    "n": 1,
+    "id": "https://worldmodels.github.io/",
+    "url": "https://worldmodels.github.io/",
+    "title": "World Models",
+    "date": "2018-03-27",
+    "source": "web"
+  },
+  {
+    "n": 2,
+    "id": "1912.01603",
+    "url": "https://arxiv.org/abs/1912.01603",
+    "title": "Dream to Control: Learning Behaviors by Latent Imagination",
+    "date": "",
+    "source": "web"
+  },
+  {
+    "n": 3,
+    "id": "2502.07825",
+    "url": "https://huggingface.co/papers/2502.07825",
+    "title": "Pre-Trained Video Generative Models as World Simulators",
+    "date": "2025-02-10",
+    "source": "hf-search"
+  },
+  {
+    "n": 4,
+    "id": "https://www.nature.com/articles/s41586-025-08744-2",
+    "url": "https://www.nature.com/articles/s41586-025-08744-2",
+    "title": "Mastering diverse control tasks through world models",
+    "date": "2025-04-02",
+    "source": "web"
+  },
+  {
+    "n": 5,
+    "id": "2410.08822",
+    "url": "https://arxiv.org/abs/2410.08822",
+    "title": "SOLD: Slot Object-Centric Latent Dynamics Models for Relational Manipulation Learning from Pixels",
+    "date": "2024-10-11",
+    "source": "arxiv"
+  },
+  {
+    "n": 6,
+    "id": "2610.06805",
+    "url": "https://arxiv.org/abs/2610.06805",
+    "title": "H-JEPA: End-to-End Learning of Hierarchical World Models for Visual Planning",
+    "date": "2026-10-05",
+    "source": "arxiv"
+  },
+  {
+    "n": 7,
+    "id": "2511.09057",
+    "url": "https://huggingface.co/papers/2511.09057",
+    "title": "PAN: A World Model for General, Interactable, and Long-Horizon World Simulation",
+    "date": "2025-11-12",
+    "source": "hf-search"
+  },
+  {
+    "n": 8,
+    "id": "https://openreview.net/forum?id=4h3bNkmGdZ",
+    "url": "https://openreview.net/forum?id=4h3bNkmGdZ",
+    "title": "A Control-Centric Benchmark for Video Prediction",
+    "date": "2022-11-18",
+    "source": "web"
+  },
+  {
+    "n": 9,
+    "id": "https://openaccess.thecvf.com/content/CVPR2026W/GigaBrainChallenge/papers/Jiang_RoboWM-Bench_A_Benchmark_for_Evaluating_World_Models_in_Robotic_Manipulation_CVPRW_2026_paper.pdf",
+    "url": "https://openaccess.thecvf.com/content/CVPR2026W/GigaBrainChallenge/papers/Jiang_RoboWM-Bench_A_Benchmark_for_Evaluating_World_Models_in_Robotic_Manipulation_CVPRW_2026_paper.pdf",
+    "title": "RoboWM-Bench: A Benchmark for Evaluating World Models in Robotic Manipulation",
+    "date": "",
+    "source": "web"
+  },
+  {
+    "n": 10,
+    "id": "2602.08971",
+    "url": "https://arxiv.org/html/2602.08971v1",
+    "title": "WorldArena: A Unified Benchmark for Evaluating Perception and Functional Utility of Embodied World Models",
+    "date": "2026-02-09",
+    "source": "web"
+  },
+  {
+    "n": 11,
+    "id": "2610.10515",
+    "url": "https://huggingface.co/papers/2610.10515",
+    "title": "RoboJEPA: Scaling Robotic Latent World Models",
+    "date": "2026-10-07",
+    "source": "hf-daily"
+  },
+  {
+    "n": 12,
+    "id": "2410.17904",
+    "url": "https://arxiv.org/abs/2410.17904",
+    "title": "Reinforcement Learning under Latent Dynamics: Toward Statistical and Algorithmic Modularity",
+    "date": "2024-10-23",
+    "source": "arxiv"
+  },
+  {
+    "n": 13,
+    "id": "2609.00188",
+    "url": "https://huggingface.co/papers/2609.00188",
+    "title": "ZimaBlue: Evolving Generalizable World Action Models through Scalable Video Pre-training",
+    "date": "2026-08-31",
+    "source": "hf-search"
+  },
+  {
+    "n": 14,
+    "id": "2607.26657",
+    "url": "https://huggingface.co/papers/2607.26657",
+    "title": "Enfold: Folding World Model Imagination into Predictive Representations for Ultra-Efficient Embodied Control",
+    "date": "2026-08-06",
+    "source": "hf-search"
+  }
+]

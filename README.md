@@ -1,5 +1,93 @@
 # Deep Research Agent (Deep Agents + Sandbox)
 
+## Chạy bản đã triển khai trên Windows
+
+Bốn module sinh viên đã được cài đặt: công cụ nguồn dữ liệu có retry, agent có giới hạn,
+validator trích dẫn và luồng nghiên cứu trong sandbox. Các tệp cung cấp sẵn được giữ nguyên.
+Báo cáo nộp bài phải được sinh bằng một lần chạy thật với model và sandbox đã cấu hình.
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+# Chỉ tạo .env khi chưa có; giữ nguyên cấu hình cá nhân hiện tại.
+if (-not (Test-Path .env)) { Copy-Item .env.example .env }
+```
+
+Điền tên model thật và khóa của bạn vào `.env` theo hướng dẫn bên dưới. Model phải hỗ trợ
+tool calling. Chọn Daytona với `DAYTONA_API_KEY`, hoặc đặt `SANDBOX=docker` khi Docker
+đã hoạt động. Công cụ arXiv/Hugging Face/Exa cần mạng ở host; sandbox chỉ xử lý tệp.
+Không dán khóa vào báo cáo, ghi chú hoặc lệnh giao việc cho agent.
+
+Kiểm tra mã trước (không cần mạng, khóa API hoặc sandbox):
+
+```powershell
+.\.venv\Scripts\python.exe -m unittest discover -s tests -v
+.\.venv\Scripts\python.exe -m pip check
+```
+
+Kiểm tra 5 công cụ bằng nguồn thật, rồi chạy một chủ đề:
+
+```powershell
+.\.venv\Scripts\python.exe -X utf8 tools.py
+.\.venv\Scripts\python.exe -X utf8 research.py "survey about world model"
+```
+
+Chạy đủ 5 chủ đề từ `topics.md` (dừng khi một lần chạy thất bại):
+
+```powershell
+Get-Content topics.md | ForEach-Object {
+    if ($_ -match '^\d+\.\s+(.+)$') {
+        $researchTopic = $Matches[1]
+        & .\.venv\Scripts\python.exe -X utf8 research.py $researchTopic
+        if ($LASTEXITCODE -ne 0) { throw "Research failed: $researchTopic" }
+    }
+}
+.\.venv\Scripts\python.exe self_check.py
+```
+
+Mỗi lần chạy thành công tạo `reports/<slug>.md`, `.sources.json`, `.meta.json`.
+Hai tệp đầu giữ đúng byte tải về từ sandbox. Metadata ghi topic, model, thời gian,
+số lần gọi task/tool, token của lead, số nguồn và họ nguồn; token của subagent chưa
+được tính vào con số này. Lead có giới hạn 150 model calls/300 tool calls; researcher
+40/60; citation-checker và helper nội bộ 20/30. Graph lead có `recursion_limit=1000`.
+
+Finalizer và validator chạy trong sandbox trước khi tải về. Lần chạy thiếu báo cáo,
+trích dẫn lỗi, ít hơn 3 task hoặc ít hơn 3 họ nguồn sẽ trả mã lỗi 1. Chủ đề rỗng trả
+mã 2. Không sửa tay báo cáo để vượt kiểm tra: sửa mã/prompt rồi chạy lại.
+
+CLI hiển thị tên công cụ và số lượt model của toàn bộ agent để theo dõi tiến độ;
+không in prompt, input công cụ hoặc cấu hình chứa khóa. `-X utf8` giúp terminal
+Windows hiển thị được Unicode trong tên bài báo và ký hiệu toán học. Khi finalizer
+hoặc validator thất bại, lỗi kèm thông báo cuối của lead để hỗ trợ chẩn đoán.
+
+Với OpenAI, khi model chưa đặt cấu hình riêng, client dùng timeout 120 giây cho mỗi
+request và tối đa 1 lần retry. Cấu hình timeout/retry đã đặt được giữ nguyên.
+Prompt yêu cầu báo cáo tiếng Anh với giọng junior, dùng “I” cho nhận xét của người
+viết và ghi rõ số liệu là kết quả tác giả công bố. Việc chỉnh giọng diễn ra trong
+sandbox trước khi kiểm tra trích dẫn và tải về.
+
+## Báo cáo đã sinh
+
+Đã chạy thật cả 5 chủ đề với model cấu hình trong `.env` và Daytona. Mỗi báo cáo
+đi kèm `.sources.json` để tra nguồn và `.meta.json` để đọc thống kê lần chạy.
+Đã đọc báo cáo, đối chiếu trích dẫn mẫu và mở thêm 5 URL mỗi chủ đề với nguồn gốc.
+Chi tiết phạm vi kiểm tra tại [CITATION_REVIEW.md](CITATION_REVIEW.md).
+
+| Báo cáo | Số nguồn | Lượt subagent | Họ nguồn |
+|---|---:|---:|---:|
+| [World model](reports/survey-about-world-model.md) | 14 | 4 | 4 |
+| [Reinforcement learning for LLM reasoning](reports/survey-about-reinforcement-learning-for-llm-reasoning.md) | 15 | 5 | 3 |
+| [LLM agents and tool use](reports/survey-about-llm-agents-and-tool-use.md) | 14 | 6 | 4 |
+| [Video and multimodal generation](reports/survey-about-video-and-multimodal-generation.md) | 22 | 6 | 4 |
+| [Efficient inference and small language models](reports/survey-about-efficient-inference-and-small-language-models.md) | 16 | 5 | 3 |
+
+`python self_check.py` kiểm tra cả 5 báo cáo và báo `READY to submit`.
+29 kiểm thử offline đạt; `pip check` không phát hiện lỗi phụ thuộc.
+
+`self_check.py` báo thiếu báo cáo khi chưa chạy đủ 5 chủ đề; kiểm thử offline thành công
+không đồng nghĩa bài đã sẵn sàng nộp. Sau khi kiểm tra nguồn mẫu, commit mã và `reports/`
+lên public repo của bạn; `.env` luôn nằm ngoài Git.
+
 Lab dựng một **hệ thống deep research đa tác tử**: người dùng chỉ cần nhập một chủ đề (ví dụ `survey about world model`), hệ thống tự lập kế hoạch, giao việc cho nhiều subagent, tìm tài liệu trên arXiv, Hugging Face và web, rồi viết một **báo cáo có trích dẫn**.
 
 Hình thức: **bài thực hành cá nhân**. Ngôn ngữ lập trình: Python 3.11 trở lên.

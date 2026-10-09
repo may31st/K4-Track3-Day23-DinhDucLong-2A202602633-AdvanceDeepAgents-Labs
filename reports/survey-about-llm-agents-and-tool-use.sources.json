@@ -1,0 +1,114 @@
+[
+  {
+    "n": 1,
+    "id": "2210.03629",
+    "url": "https://arxiv.org/abs/2210.03629",
+    "title": "ReAct: Synergizing Reasoning and Acting in Language Models",
+    "date": "2023-03-10",
+    "source": "web"
+  },
+  {
+    "n": 2,
+    "id": "2302.04761",
+    "url": "https://arxiv.org/abs/2302.04761",
+    "title": "Toolformer: Language Models Can Teach Themselves to Use Tools",
+    "date": "2023-02-09",
+    "source": "web"
+  },
+  {
+    "n": 3,
+    "id": "2411.01747",
+    "url": "https://arxiv.org/abs/2411.01747",
+    "title": "DynaSaur: Large Language Agents Beyond Predefined Actions",
+    "date": "2024-11-04",
+    "source": "arxiv"
+  },
+  {
+    "n": 4,
+    "id": "10.1145/3696410.3714825",
+    "url": "https://dl.acm.org/doi/10.1145/3696410.3714825",
+    "title": "Empowering Language Models as Automatic Tool Agents",
+    "date": "2025-04-22",
+    "source": "web"
+  },
+  {
+    "n": 5,
+    "id": "2509.12867",
+    "url": "https://arxiv.org/abs/2509.12867",
+    "title": "Tool-R1: Sample-Efficient Reinforcement Learning for Agentic Tool Use",
+    "date": "2025-09-16",
+    "source": "web"
+  },
+  {
+    "n": 6,
+    "id": "2310.03128",
+    "url": "https://huggingface.co/papers/2310.03128",
+    "title": "MetaTool Benchmark for Large Language Models: Deciding Whether to Use Tools and Which to Use",
+    "date": "2023-10-04",
+    "source": "hf-search"
+  },
+  {
+    "n": 7,
+    "id": "2025.naacl-long.174",
+    "url": "https://aclanthology.org/2025.naacl-long.174/",
+    "title": "When2Call: When (not) to Call Tools",
+    "date": "2025",
+    "source": "web"
+  },
+  {
+    "n": 8,
+    "id": "2510.04550",
+    "url": "https://arxiv.org/abs/2510.04550",
+    "title": "TRAJECT-Bench: A Trajectory-Aware Benchmark for Evaluating Agentic Tool Use",
+    "date": "2025-10-06",
+    "source": "arxiv"
+  },
+  {
+    "n": 9,
+    "id": "2025.acl-long.421",
+    "url": "https://aclanthology.org/2025.acl-long.421/",
+    "title": "MultiAgentBench: Evaluating the Collaboration and Competition of LLM agents",
+    "date": "2025",
+    "source": "web"
+  },
+  {
+    "n": 10,
+    "id": "2511.21510",
+    "url": "https://arxiv.org/abs/2511.21510",
+    "title": "Tool-RoCo: An Agent-as-Tool Self-organization Large Language Model Benchmark in Multi-robot Cooperation",
+    "date": "2025-11-26",
+    "source": "arxiv"
+  },
+  {
+    "n": 11,
+    "id": "10.1145/3803437.3805554",
+    "url": "https://doi.org/10.1145/3803437.3805554",
+    "title": "Evaluating Privilege Usage of Agents with Real-World Tools",
+    "date": "2026-07-17",
+    "source": "web"
+  },
+  {
+    "n": 12,
+    "id": "2610.06406",
+    "url": "https://huggingface.co/papers/2610.06406",
+    "title": "What Did the Agent Actually Do? Evidence-Grounded Oversight for Long-Horizon Agents",
+    "date": "2026-10-05",
+    "source": "hf-daily"
+  },
+  {
+    "n": 13,
+    "id": "2310.03903",
+    "url": "https://arxiv.org/abs/2310.03903",
+    "title": "LLM-Coordination: Evaluating and Analyzing Multi-agent Coordination Abilities in Large Language Models",
+    "date": "2023-10-05",
+    "source": "arxiv"
+  },
+  {
+    "n": 14,
+    "id": "10.1145/3719027.3765064",
+    "url": "https://doi.org/10.1145/3719027.3765064",
+    "title": "AgentSentinel: An End-to-End and Real-Time Security Defense Framework for Computer-Use Agents",
+    "date": "2025",
+    "source": "web"
+  }
+]
